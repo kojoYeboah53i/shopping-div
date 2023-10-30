@@ -2,8 +2,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 80%;
   height: 15vh;
   border: 2px solid red;
+  text-align: center;
   margin: 0 auto;
+}
+
+.colorB {
+  background-color: blue;
+
+}
+
+.colorA {
+  background-color: rgb(251, 0, 255);
+
 }
