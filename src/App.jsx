@@ -1,51 +1,38 @@
 
 import './App.css';
 
-import styled from 'styled-components'
-import  { useState } from 'react';
+// import styled from 'styled-components'
+import  { useEffect, useState } from 'react';
+import Navbar from './components/navbar';
+import Products from './components/Products';
 
 const App = () => {
 
 
- const [firstName, setFirstName] = useState('Isaac')
- const [ background, setBackground] = useState('colorB')
+  const[products,setProducts] = useState([])
+  // const id =1;
+    useEffect(()  => {
+      fetch(`http://localhost:9222/shop/v1/products`)
+        .then(res => res.json())
+        .then(data => {
+          setProducts(data)
+          console.log(data)
+        })
+    }, [ ])
+  
 
-  // setFirstName('John')
- const changeBackground = () => {
-  // toggle 
-    setBackground('colorA')
- }
-
-  const Wrapper = styled.div`
-  text-align: center;
-  margin: 0 auto;
-  margin: 1rem;
-  width: 100%;
-  `
 
 
 
   return (
     <>
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <Navbar/>
+  <div className="container mt-4"></div>
+   
+   <Products items={products} />
 
 
-     <Wrapper className="container text-center mx-auto mt-4">
-      <div className="flex  justify-between items-center w-8/12 p-3 ">
-      <h1 className="text-2xl"> {firstName} </h1>
-        <button onClick={() => setFirstName('Yeboah') }
-        className="bg-red-900 text-white py-3 px-6 rounded-lg hover:bg-white hover:text-red-800"> change</button>
-      </div>
-     </Wrapper>
-
-     <div className={`container  ${background}  outline-none border-0`}>
-       <div className="flex">
-       <button onClick={() => changeBackground() }
-        className="bg-pink-900 text-white py-3 px-6 rounded-lg hover:bg-white
-         hover:text-red-800"> change background</button>
-      
-         </div>
-     </div>
+    
 
         
     </>
