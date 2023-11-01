@@ -1,12 +1,37 @@
 // import React from 'react'
-import PropTypes from 'prop-types';
-const Products = ({items}) => {
+
+import { useEffect, useState } from "react";
+
+const Products = () => {
+
+  const[products,setProducts] = useState([])
+
+// console.log(items)
+
+useEffect(() => {
+  (async function() {
+
+    let result = await fetch('http://localhost:9222/shop/v1/products')
+    // console.log(result)
+     const data = await result.json();
+    console.log(data)
+    setProducts(data)
+    
+  })();// simulate loading for 1 second
+
+  return () => {
+    console.log("cleaning up")
+  }
+}, [])
+
+
+
   return (
     <>
       <div className="w-full products-container flex flex-col items-center">
 
 < div className="cart">
-  {items.map((product) => (
+  {products.map((product) => (
     <div className="cart-items" key={product.id}>
       <div className="cart-item">
         <div className="cart-item-image">
@@ -33,15 +58,6 @@ const Products = ({items}) => {
   
 }
 
-Products.propTypes = {
-    items: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            name: PropTypes.string.isRequired,
-            price: PropTypes.number.isRequired,
-            image: PropTypes.string.isRequired,
-        })
-    ).isRequired,
-};
 
-export default Products
+
+export default Products;
