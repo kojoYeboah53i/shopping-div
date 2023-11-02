@@ -6,6 +6,9 @@ import { useState } from "react";
 import '../components/styles/login.css';
 import logo from '../assets/favicon.ico'
 
+import { useAuth } from "../Context/useAuth";
+import { motion } from "framer-motion";
+
 const Login = () => {
 
 
@@ -15,6 +18,8 @@ const Login = () => {
     // const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState(""); 
+
+    const { login, setAuth } = useAuth();
 
 
     const closBtn = () => {
@@ -44,10 +49,11 @@ const Login = () => {
             })
         }).then(async (res)  => {
           console.log(res); 
-          let isLogin = await res.json();   
-          console.log(isLogin);
+          let user = await res.json();   
 
-          if(isLogin.id > 0){
+          if(user.id > 0){
+            login(user)
+            setAuth(true)
             setSuccessMessage('login successful ...!')
             setTimeout(() => {
               navigate("/home");
@@ -99,8 +105,16 @@ const Login = () => {
 
   return (
     <>
-     <div>
-      <div className="test"></div>
+
+     <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit = {{ opacity: 0 }}
+        transition={{
+          duration: 1,
+     
+        }}>
+
     <div className="login-background">
     <div className=" login-section ">
       <div className="login-form-element">
@@ -111,7 +125,6 @@ const Login = () => {
           { errorMessage && (
         <div className="error transition duration-700 ease-in-out">
                     <div className="message">
-                      {/* <strong>{errorMessage}</strong> */}
                       <strong>{errorMessage}</strong>
                       <div className="close cursor-pointer" onClick={closBtn}>
                       <span className="material-symbols-outlined">
@@ -124,7 +137,7 @@ const Login = () => {
           
           }
            { successMessage && (
-               <div className="success transition duration-700 ease-in-out">
+               <div className="success ">
                     <div className="message">
                       <strong>{successMessage}</strong>
                     
@@ -200,7 +213,7 @@ const Login = () => {
             
     </div>
 
-    </div>
+    </motion.div>
     </>
   )
 }

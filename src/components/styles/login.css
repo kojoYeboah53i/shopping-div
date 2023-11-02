@@ -152,16 +152,17 @@ w-full lg:w-400 h-screen overflow-hidden flex flex-col mr-auto absolute top-0 le
 }
 
 .success{
-    height: 5.4rem;
+    height: 7.4rem;
     width: 100%;
-    /* border: 2px solid #113a3a; */
-    background-color: rgb(41, 145, 41);
+    border: 2px solid #113a3a;
+    background-color: rgb(16, 76, 16);
     box-shadow: 2px 4px 4px 2px rgb(12, 38, 12);
-    /* border-radius: 1.6rem; */
-    margin-bottom: 1.4rem;
-    border-top: 2px solid rgb(33, 100, 8);
-    border-bottom: 2px solid  rgb(32, 98, 8);
-    /* display: none; */
+    margin-bottom: 0.8rem;
+    transform: 1.7sec ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 .success .message{
     display: flex;

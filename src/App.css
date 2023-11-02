@@ -26,9 +26,9 @@
   display: block;
 }
 
-.navbar .nav-links{
-  width: 17%
-}
+/* .navbar .nav-links{
+  width: 12%
+} */
 .products-container{
   display: grid;
   grid-template-columns: auto 22rem;
