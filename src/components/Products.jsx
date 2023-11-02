@@ -7,11 +7,12 @@ const Products = () => {
   const[products,setProducts] = useState([])
 
 // console.log(items)
+const url = `${import.meta.env.VITE_REMOTE_API_URL}`;
 
 useEffect(() => {
   (async function() {
 
-    let result = await fetch('http://localhost:9222/shop/v1/products')
+    let result = await fetch(`${url}/products`)
     // console.log(result)
      const data = await result.json();
     console.log(data)
@@ -22,7 +23,7 @@ useEffect(() => {
   return () => {
     console.log("cleaning up")
   }
-}, [])
+}, [url])
 
 
 
@@ -30,7 +31,7 @@ useEffect(() => {
     <>
       <div className="w-full products-container flex flex-col items-center">
 
-< div className="cart">
+<div className="cart">
   {products.map((product) => (
     <div className="cart-items" key={product.id}>
       <div className="cart-item">
@@ -39,7 +40,7 @@ useEffect(() => {
         </div>
         <div className="cart-item-details">
           <p className="cart-item-name">{product.name}</p>
-          <p className="cart-item-price">$ {product.price}</p>
+          <p className="cart-item-price">${product.price}</p>
         </div>
         <div className="add-to-cart w-full">
           <button className="cart-btn py-2 px-6 flex justify-center items-center mx-auto">

@@ -4,6 +4,7 @@ import logo from '../assets/favicon.ico'
 const Navbar = () => {
   return (
    <>
+   <link rel="shortcut icon" href={logo} type="image/x-icon" />
    <div className="navbar w-full flex justify-between items-center mx-auto p-2">
     <div className="brand">
       <img src={logo} alt="brand" 

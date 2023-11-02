@@ -23,6 +23,7 @@ const Login = () => {
           
       const onLogin = async (e) => {
       e.preventDefault();
+
       
       if(email === "" || password === ""){
           setErrorMessage("please fill in all fields")
@@ -30,7 +31,7 @@ const Login = () => {
         }
   
         
-        const url = `http://localhost:9222/api/login`;
+        const url = `${import.meta.env.VITE_REMOTE_API_URL}/login`;
         await fetch(url, {
           method: 'POST',
           mode: 'cors',
@@ -45,8 +46,13 @@ const Login = () => {
           console.log(res); 
           let isLogin = await res.json();   
           console.log(isLogin);
+
           if(isLogin.id > 0){
-           navigate("/home");
+            setSuccessMessage('login successful ...!')
+            setTimeout(() => {
+              navigate("/home");
+              
+            }, 2000);
 
           }      
           
@@ -79,15 +85,23 @@ const Login = () => {
 
   const OnSignIn = styled.button `
   box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.23);
-  width: 100p%
-  `
+  width: 89%;
+  height:8vh;
+  font-size: 1.5rem;
+  background: white;
+  
+  &:hover{
+    background-color: #113a3a;
+  }
+  `;
+
+  
 
   return (
     <>
      <div>
-    {/* <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> */}
+      <div className="test"></div>
     <div className="login-background">
-
     <div className=" login-section ">
       <div className="login-form-element">
         <div className="logo">
@@ -97,6 +111,7 @@ const Login = () => {
           { errorMessage && (
         <div className="error transition duration-700 ease-in-out">
                     <div className="message">
+                      {/* <strong>{errorMessage}</strong> */}
                       <strong>{errorMessage}</strong>
                       <div className="close cursor-pointer" onClick={closBtn}>
                       <span className="material-symbols-outlined">
@@ -134,7 +149,7 @@ const Login = () => {
                     </div>
                     <div className="z-0 w-full mb-2">
                       <input
-                        type="text"
+                        type="password"
                         name="password"
                         id="password"
                         className="h-7vh bg-primary-700 outline-none w-10/12"
@@ -150,8 +165,8 @@ const Login = () => {
           </form>
         <div className="w-full text-center items-center -mt-2 px-2">
                         <OnSignIn
-                          className=" hover:bg-primary-700 bg-white text-primary-700
-                                 hover:text-white text-xl font-semibold py-3 px-8 text-md rounded-3xl shadow-2xl w-full"
+                          className=" text-primary-700
+                                 hover:text-white  text-xl font-semibold py-3 px-8 text-md rounded-3xl shadow-2xl"
                           onClick={onLogin}
                         >
                           login
@@ -159,7 +174,7 @@ const Login = () => {
                         </div>
                         <div className='mt-4 flex gap-4 justify-between py-2 px-0 item-center '>
 
-<p className=" text-sm text-400 flex justify-between items-start gap-4 w-full mx-auto">
+<p className=" text-2xl text-white text-400 flex justify-between items-start gap-4 w-full mx-auto">
   Dont have an account?
   <Link to="/signup" className="text-md font-semibold text-customGreen-200">
       Sign up

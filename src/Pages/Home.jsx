@@ -8,7 +8,7 @@ const Home = () => {
     <Navbar/>
     <div className="container mt-4"></div>
      
-     <Products   />
+     <Products  />
     </>
   )
 }
