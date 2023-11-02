@@ -52,7 +52,7 @@ const Login = () => {
             setTimeout(() => {
               navigate("/home");
               
-            }, 2000);
+            }, 1200);
 
           }      
           
