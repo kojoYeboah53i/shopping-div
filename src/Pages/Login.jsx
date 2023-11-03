@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 
 const Login = () => {
 
-
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -58,9 +57,18 @@ const Login = () => {
             setTimeout(() => {
               navigate("/home");
               
-            }, 1200);
+            }, 1000);
 
-          }      
+          } else{
+            setSuccessMessage('')
+            setErrorMessage("")
+            setErrorMessage(user.message)
+            setTimeout(() => {
+              setSuccessMessage('')
+              setErrorMessage("")
+              
+            }, 2000);
+          }   
           
           
         }).catch(error => {

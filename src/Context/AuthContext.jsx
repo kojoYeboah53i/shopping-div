@@ -1,13 +1,13 @@
-import { createContext, useEffect, useState } from "react"
-
+import { createContext, useState } from "react"
 
 
 export const AuthContext  = createContext();
 
+
 // eslint-disable-next-line react/prop-types
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ pages }) => {
   const [currentUser, setCurrentUser] = useState([''])
-  const [auth, setAuth] = useState([''])
+  const [auth, setAuth] = useState(false)
 
   const login = (user) => {
     setCurrentUser(user)
@@ -15,24 +15,23 @@ export const AuthProvider = ({ children }) => {
 
 
 
-
   const logout = () => {
     setCurrentUser(null)
   }
 
-  const value = { 
+  const data = { 
     auth,
     setAuth,
     setCurrentUser,
     currentUser,
     login,  
-    logout
+    logout,
   }
 
   return (
     <>
-      <AuthContext.Provider value={value}>
-        {children}
+      <AuthContext.Provider value={data}>
+        {pages}
       </AuthContext.Provider>
     </>
   )

@@ -10,7 +10,7 @@ const Navbar = () => {
   const { currentUser, auth, logout } = useAuth();
   const navigate = useNavigate();
 
-  console.log(currentUser)
+  // console.log(currentUser)
 
   const onLogout = () => {
     logout()

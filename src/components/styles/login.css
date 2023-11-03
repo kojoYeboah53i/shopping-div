@@ -22,7 +22,7 @@ div.login-background{
     width: 100%;
     height: 100vh;
     display: grid;
-    grid-template-columns: 40rem auto;
+    grid-template-columns: 32rem auto;
     overflow: hidden;
     padding: 0;
     position: relative;
