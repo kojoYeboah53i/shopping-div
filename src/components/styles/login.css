@@ -116,7 +116,7 @@ w-full lg:w-400 h-screen overflow-hidden flex flex-col mr-auto absolute top-0 le
     height: 5.4rem;
     width: 100%;
     /* border: 2px solid #113a3a; */
-    background-color: rgb(145, 41, 41);
+    /* background-color: rgb(145, 41, 41); */
     box-shadow: 2px 4px 4px 2px rgb(38, 12, 12);
     /* border-radius: 1.6rem; */
     margin-bottom: 1.4rem;
@@ -155,7 +155,7 @@ w-full lg:w-400 h-screen overflow-hidden flex flex-col mr-auto absolute top-0 le
     height: 7.4rem;
     width: 100%;
     border: 2px solid #113a3a;
-    background-color: rgb(16, 76, 16);
+    /* background-color: rgb(16, 76, 16); */
     box-shadow: 2px 4px 4px 2px rgb(12, 38, 12);
     margin-bottom: 0.8rem;
     transform: 1.7sec ease-in-out;

@@ -29,12 +29,12 @@ useEffect(() => {
 
   return (
     <>
-      <div className="w-full products-container flex flex-col items-center">
+      {/* <div className=" products-c "> */}
 
 <div className="cart">
   {products.map((product) => (
     <div className="cart-items" key={product.id}>
-      <div className="cart-item">
+      <div className="cart-item shadow-2xl">
         <div className="cart-item-image">
           <img src={product.image} alt="item"   />
         </div>
@@ -52,7 +52,7 @@ useEffect(() => {
   ))}
   </div>
     
-</div>
+{/* </div> */}
     </>
   )
 

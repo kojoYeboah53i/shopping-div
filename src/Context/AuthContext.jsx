@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
 
 
 
-  const logout = () => {
+  const logout = () => {  
     setCurrentUser(null)
   }
 
@@ -35,6 +35,6 @@ export const AuthProvider = ({ children }) => {
       </AuthContext.Provider>
     </>
   )
-}
+} 
 
  
