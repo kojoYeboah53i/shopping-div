@@ -1,15 +1,15 @@
 // import React from 'react'
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
-
+import { CartContext } from "../Context/useCart";
 
 export const Cart = () => {
 
-   const [things, setThings] = useState([])
+ const { things} = useContext(CartContext);
 
    useEffect(() => {
 
-      setThings([ {name: "orange", price: 10}])
+     console.log(things)
 
    }, [things])
 
@@ -27,8 +27,6 @@ export const Cart = () => {
     padding: 0.5rem 1rem; 
     border-radius: 0.8rem;
 
-    
-
     `;
 
     const CartUl = styled.ul`
@@ -43,23 +41,25 @@ export const Cart = () => {
 
 
   return (
-
     <>
     <CartList className="shadow-2xl text-center items-center mx-auto"> 
 
     <CartUl>
 
-    { things.map((thing) => { 
-      <li className="flex justify-between items-center">
-        <div className="flex items-center">
-          <div className="flex flex-col">
+     { things.map((thing) =>  
+      (
+      <div className="flex justify-between items-center" key={thing.id}>
+        <div className="flex items-center w-full p-2">
+          <div className="w-full flex justify-between items-center p-2 mx-auto">
             <span className="text-lg font-bold">{thing.name}</span>
             <span className="text-sm">{thing.price}</span>
           </div>
         </div>
     
-      </li>
-   }) }
+      </div>
+
+
+   ))}
 
     </CartUl>
 

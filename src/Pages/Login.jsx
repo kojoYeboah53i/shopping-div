@@ -51,14 +51,15 @@ const Login = () => {
           let user = await res.json();   
 
           if(user.id > 0){
+            //call the login function from AuthContext
             login(user)
             setAuth(true)
             setSuccessMessage('login successful ...!')
-            setTimeout(() => {
+            // setTimeout(() => {
               navigate("/home");
               
-            }, 1000);
-
+            // }, 1000);
+          
           } else{
             setSuccessMessage('')
             setErrorMessage("")

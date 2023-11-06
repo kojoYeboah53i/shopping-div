@@ -7,7 +7,6 @@ import { styled } from "styled-components";
 
 const ProductContainer = styled.div`
   height: 100vh;
-
   overflow: hidden;
   overflow-y: scroll;
   display: flex;

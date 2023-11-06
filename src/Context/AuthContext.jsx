@@ -1,8 +1,6 @@
 import { createContext, useState } from "react"
 
-
 export const AuthContext  = createContext();
-
 
 // eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
@@ -12,8 +10,6 @@ export const AuthProvider = ({ children }) => {
   const login = (user) => {
     setCurrentUser(user)
   }
-
-
 
   const logout = () => {  
     setCurrentUser(null)

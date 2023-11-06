@@ -1,9 +1,25 @@
-// import React from 'react'
+// import { Navigate, Outlet } from 'react-router-dom'
+// // import React from 'react'\
+// import { useAuth } from './Context/useAuth'
+// import { CartContextProvider } from './Context/CartContext'
 
-const ProtectedRoutes = () => {
-  return (
-    <div>ProtectedRoutes</div>
-  )
-}
+// const ProtectedRoutes = () => {
+//   const { auth } = useAuth()
 
-export default ProtectedRoutes;
+
+  
+//   return (
+//     <>
+
+//       {auth ?
+//       <CartContextProvider>
+//         <Outlet /> 
+//       </CartContextProvider>
+      
+//       : <Navigate to="/login" />}
+
+//     </>
+//   )
+// }
+
+// export default ProtectedRoutes;

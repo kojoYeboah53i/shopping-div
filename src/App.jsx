@@ -3,7 +3,7 @@ import './App.css';
 import { AuthProvider } from './Context/AuthContext';
 
 import { AnimatePresence } from 'framer-motion';
-import Router from './Router';
+import Router from './router';
 
 const App = () => {
 
@@ -12,8 +12,11 @@ const App = () => {
     <>
     <AnimatePresence wait>
     <AuthProvider>
-    <Router/>      
+
+      <Router/>   
+
     </AuthProvider>
+
     </AnimatePresence>
     </>
 
