@@ -1,5 +1,5 @@
 // import React from 'react'
-import { Cart } from "../components/Cart";
+// import { Cart } from "../components/Cart";
 import Navbar from "../components/navbar";
 import Products from "../components/Products";
 import { motion } from "framer-motion";
@@ -51,7 +51,7 @@ const Home = () => {
             <ProductContainer>
               <Products />
             </ProductContainer>
-          { <Cart user={currentUser} />}
+          {/* { <Cart user={currentUser} />} */}
           </div>
       </motion.div>
     </>

@@ -3,19 +3,33 @@ import { Link } from "react-router-dom";
 import logo from "../assets/favicon.ico";
 import { useAuth } from "../Context/useAuth";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 // import { useState } from "react";
 
 const Navbar = () => {
-  const { currentUser, auth, logout } = useAuth();
+  const {setCurrentUser, currentUser, auth, setAuth, logout,  } = useAuth();
 
   const navigate = useNavigate();
 
   // console.log(currentUser)
+  useEffect(() => {
+    const localToken = localStorage.getItem("token");
+    if (localToken && localToken.length > 0) {
+      setAuth(true);
+    let user = JSON.parse(localStorage.getItem("user"));
+    setCurrentUser(user);
+    } else {
+      setAuth(false);
+    }
+  }
+  , [setCurrentUser, setAuth]);
 
   const onLogout = () => {
     logout();
     navigate("/login");
   };
+
+
 
  
 

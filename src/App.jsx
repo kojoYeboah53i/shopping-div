@@ -3,7 +3,7 @@ import './App.css';
 import { AuthProvider } from './Context/AuthContext';
 
 import { AnimatePresence } from 'framer-motion';
-import Router from './router';
+import Router from './Router';
 
 const App = () => {
 

@@ -82,7 +82,7 @@ export const Cart = ({user}) => {
     <CartList className="shadow-2xl text-center items-center mx-auto"> 
     <h1 className="text-2xl font-bold text-gray-700">Cart items</h1>
     <CartUl>
-      { user.id ? <CartArea id={user.id} /> : <h1 className="text-2xl font-bold text-gray-700">No items in cart</h1> }
+      {/* { user.id ? <CartArea id={user.id} /> : <h1 className="text-2xl font-bold text-gray-700">No items in cart</h1> } */}
     <div className="total absolute left-0 bottom-0 flex justify-between py-3 px-4 w-full rounded shadow-2xl">
       <div className="flex justify-between items-center w-full">
         <span className="text-lg font-bold">Total</span>

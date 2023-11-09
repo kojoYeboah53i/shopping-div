@@ -7,8 +7,11 @@ import Signup from "./Pages/Cart";
 import Index from "./Pages/Home";
 import Sandbox from "./Pages/Sandbox";
 // import ProtectedRoutes from './ProtectedRoutes';
-
+ import { useAuth } from "./Context/useAuth";
 const Router = () => {
+ 
+  const { logout } = useAuth();
+
   return (
     <>
       <BrowserRouter>
@@ -19,29 +22,24 @@ const Router = () => {
           <Route
             path="/"
             element={
-              <CartContextProvider>
                 <Index />
-              </CartContextProvider>
             }
           />
           <Route
             path="/home"
             element={
-              <CartContextProvider>
                 <Index />
-              </CartContextProvider>
             }
           />
           <Route
             path="/cart"
             element={
-              <CartContextProvider>
                 <Cart />
-              </CartContextProvider>
             }
           />
 
           <Route path="/play" element={<Sandbox />} />
+          <Route path="/logout" element={logout} />
         </Routes>
       </BrowserRouter>
     </>
