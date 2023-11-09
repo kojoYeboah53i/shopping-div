@@ -5,6 +5,7 @@ import Cart from "./Pages/Cart";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Cart";
 import Index from "./Pages/Home";
+import Sandbox from "./Pages/Sandbox";
 // import ProtectedRoutes from './ProtectedRoutes';
 
 const Router = () => {
@@ -39,6 +40,8 @@ const Router = () => {
               </CartContextProvider>
             }
           />
+
+          <Route path="/play" element={<Sandbox />} />
         </Routes>
       </BrowserRouter>
     </>

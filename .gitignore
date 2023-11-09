@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 .env
 zunble.txt
+src/Pages/Sandbox.jsx
+rest.http

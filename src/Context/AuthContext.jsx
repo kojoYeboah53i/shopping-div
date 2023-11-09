@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 
 export const AuthContext  = createContext();
 
@@ -6,6 +6,7 @@ export const AuthContext  = createContext();
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState([''])
   const [auth, setAuth] = useState(false)
+  
 
   const login = (user) => {
     setCurrentUser(user)
@@ -14,6 +15,11 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {  
     setCurrentUser(null)
   }
+  useEffect(() => {
+    if (auth) {
+      setCurrentUser(currentUser);
+    }
+  } , [auth, currentUser]);
 
   const data = { 
     auth,

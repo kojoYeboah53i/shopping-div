@@ -4,6 +4,8 @@ import Navbar from "../components/navbar";
 import Products from "../components/Products";
 import { motion } from "framer-motion";
 import { styled } from "styled-components";
+import { useAuth } from "../Context/useAuth";
+
 
 const ProductContainer = styled.div`
   height: 100vh;
@@ -18,12 +20,16 @@ const ProductContainer = styled.div`
 `;
 const Heading = styled.div`
 margin: auto 0;
-height: 10vh;
-text-align: center;
+height: 8vh;
+display: flex;
+justify-content: center;
 align-items: center;
 `;
 
 const Home = () => {
+
+  const { currentUser } = useAuth();
+  // console.log('currentUser', currentUser);
   return (
     <>
       <motion.div
@@ -45,7 +51,7 @@ const Home = () => {
             <ProductContainer>
               <Products />
             </ProductContainer>
-            <Cart />
+          { <Cart user={currentUser} />}
           </div>
       </motion.div>
     </>
