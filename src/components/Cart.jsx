@@ -5,16 +5,15 @@ import styled from "styled-components";
 // import { CartContext } from "../Context/CartContext";
 import axios from "axios";
 
-export const Cart = ({user}) => {
-  // const { items, setitems} = useContext(CartContext);
+export const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
+  // const url = `${import.meta.env.VITE_REMOTE_API_URL}/getCartwithUserId/${id}`;
+
+  //  console.log("user", user)
 
 
-   console.log("user", user)
 
-
-
-    const CartList = styled.div`
+    const CartContainer = styled.div`
 
     width: 95%;
     height: 90vh;
@@ -43,56 +42,27 @@ export const Cart = ({user}) => {
     overflow-y: scroll;
     margin-bottom: 1rem;
     `;
-  // eslint-disable-next-line react/prop-types
-  const CartArea = ({id}) => {
-    console.log('user is logged in with id ' + id)
-
-    console.log('cartItems')
-    console.log(cartItems)
-    useEffect(() => {
-      (async function() {
-      const newCart = await axios.get(`${import.meta.env.VITE_REMOTE_API_URL}/getCartwithUserId/${id}`)
-      
-      setCartItems(newCart)
-      })();// 
-      return () => {
-        console.log("cleaning up cart component")
-      }
-     }, [id])
 
 
-    return (   <> 
-      {/* {cartItems.map((item) => (  
-          <div className="flex justify-between items-center" key={item.id}>
-          <div className="flex items-center w-full p-2">
-            <div className="w-full flex justify-between items-center p-2 mx-auto">
-              <span className="text-lg font-bold">{item.name}</span>
-              <span className="text-sm">{item.price}</span>
-            </div>
-          </div>
-        </div>
 
-      ))} */}
-    </> )
 
-  }
 
-  return (
-    <>
-    <CartList className="shadow-2xl text-center items-center mx-auto"> 
-    <h1 className="text-2xl font-bold text-gray-700">Cart items</h1>
-    <CartUl>
-      {/* { user.id ? <CartArea id={user.id} /> : <h1 className="text-2xl font-bold text-gray-700">No items in cart</h1> } */}
-    <div className="total absolute left-0 bottom-0 flex justify-between py-3 px-4 w-full rounded shadow-2xl">
-      <div className="flex justify-between items-center w-full">
-        <span className="text-lg font-bold">Total</span>
-        <span className="text-sm">$ 0.00</span>
-      </div>
-    </div>
-    </CartUl>
 
-    </CartList>
-    </>
-    
-  )
+return (
+  <>
+    <CartContainer className="shadow-2xl">
+      <span className="flex justify-between items-center w-full py-2 px-4">  
+      <h1 className="text-green-800 text-2xl"> Cart Items </h1>
+      <h1></h1>
+      </span>
+      <CartUl>
+
+      </CartUl>
+
+    </CartContainer>
+  
+  </>
+)
+
 }
+

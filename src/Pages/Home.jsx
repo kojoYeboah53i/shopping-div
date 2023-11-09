@@ -1,10 +1,10 @@
 // import React from 'react'
-// import { Cart } from "../components/Cart";
+import { Cart } from "../components/Cart";
 import Navbar from "../components/navbar";
 import Products from "../components/Products";
 import { motion } from "framer-motion";
 import { styled } from "styled-components";
-import { useAuth } from "../Context/useAuth";
+// import { useAuth } from "../Context/useAuth";
 
 
 const ProductContainer = styled.div`
@@ -28,7 +28,7 @@ align-items: center;
 
 const Home = () => {
 
-  const { currentUser } = useAuth();
+  // const { currentUser } = useAuth();
   // console.log('currentUser', currentUser);
   return (
     <>
@@ -51,7 +51,7 @@ const Home = () => {
             <ProductContainer>
               <Products />
             </ProductContainer>
-          {/* { <Cart user={currentUser} />} */}
+          { <Cart />}
           </div>
       </motion.div>
     </>
