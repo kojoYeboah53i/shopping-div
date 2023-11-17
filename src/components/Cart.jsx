@@ -3,11 +3,13 @@
 import {  useEffect, useState } from "react";
 import styled from "styled-components";
 // import { CartContext } from "../Context/CartContext";
-import axios from "axios";
+// import axios from "axios";
+import { useAuth } from "../Context/useAuth";
 
 export const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
-  // const url = `${import.meta.env.VITE_REMOTE_API_URL}/getCartwithUserId/${id}`;
+  const { auth } = useAuth();
+  // const [customer, setCustomer] = useState({});
 
   //  console.log("user", user)
 
@@ -44,18 +46,70 @@ export const Cart = () => {
     `;
 
 
+    useEffect(() => {
+      const user = JSON.parse(localStorage.getItem("user"));
+      if(user == null || user == undefined){
+        return;
+      }
+      // setCustomer(user);
+      const id = user.id;
+      console.log("id", id)
+
+      fetch(`${import.meta.env.VITE_REMOTE_API_URL}/getCartwithUserId/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data)
+        setCartItems(data)
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
+      return () => {
+        console.log("cleaning up")
+        setCartItems([])
+      }
+
+    },[]);
+
+
+    // const listCartItems =(items) => {
+  
+    //   return <>
+    //    { items.map((item) => (
+    //     <li key={item.id} className="flex justify-between items-center py-3 px-4 w-full rounded shadow-2xl">
+    //       <div className="flex justify-between items-center w-full">
+    //         <span className="text-lg font-bold">{item.name}</span>
+    //         <span className="text-sm">¢ {item.price}</span>
+    //       </div>
+    //       <div className="flex justify-between items-center w-full">
+    //         <span className="text-lg font-bold">{item.image}</span>
+    //         {/* <span className="text-sm">¢ {item.price * item.quantity}</span> */}
+    //       </div>
+    //     </li>
+    //   ))
+    //   </>
+    //   )} 
+      
+
 
 
 
 
 return (
   <>
-    <CartContainer className="shadow-2xl">
-      <span className="flex justify-between items-center w-full py-2 px-4">  
-      <h1 className="text-green-800 text-2xl"> Cart Items </h1>
-      <h1></h1>
-      </span>
+    <CartContainer className="shadow-2xl text-center mx-auto">
+      <h1 className="font-bold text-gray-700 text-2xl"> Cart Items </h1>
       <CartUl>
+
+         {/* conditional rendering here */}
+        { auth ? 'cart items present'  : <h1 className="text-2xl font-bold text-gray-700">cart is empty</h1> }
+        <div className="total absolute left-0 bottom-1 flex justify-between py-3 px-4 w-full rounded shadow-2xl">
+          <div className="flex justify-between items-center w-full">
+            <span className="text-lg font-bold">Total</span>
+            <span className="text-sm">¢ 0.00</span>
+          </div>
+        </div>
 
       </CartUl>
 
