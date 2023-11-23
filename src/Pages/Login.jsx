@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import backgroundImage from "../assets/background.jpg";
 import { useState } from "react";
 import '../components/styles/login.css';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from '@leecheuk/react-google-login';
 import logo from '../assets/favicon.ico'
 
 import { useAuth } from "../Context/useAuth";
