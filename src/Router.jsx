@@ -5,7 +5,7 @@ import Cart from "./Pages/Cart";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Cart";
 import Index from "./Pages/Home";
-import Sandbox from "./Pages/Sandbox";
+// import Sandbox from "./Pages/Sandbox";
 // import ProtectedRoutes from './ProtectedRoutes';
  import { useAuth } from "./Context/useAuth";
 const Router = () => {
@@ -38,7 +38,7 @@ const Router = () => {
             }
           />
 
-          <Route path="/play" element={<Sandbox />} />
+          {/* <Route path="/play" element={<Sandbox />} /> */}
           <Route path="/logout" element={logout} />
         </Routes>
       </BrowserRouter>

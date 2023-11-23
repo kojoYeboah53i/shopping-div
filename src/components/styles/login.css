@@ -229,6 +229,14 @@ input{
   .text-muted {
     color: #dce0e4;
   }
+  .google-auth{
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid red;
+}
 
    /* div .mt-4 .gap-4 .justify-between .py-2 .px-0.item-center {
     display: 

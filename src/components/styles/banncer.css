@@ -1,0 +1,44 @@
+.banner-container{
+    display: grid;
+    grid-template-columns: 22rem auto 18rem;
+    gap: 0.9rem;
+    width: 100%;
+    height: 50vh;
+}
+
+.category{
+    width: 100%;
+    padding: 0.5rem 0.2rem;
+
+}
+
+.category ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    width: 100%;
+    padding: 0.3rem;
+}
+
+.category ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.category ul li .category-link{
+    width: 58%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.category ul li .arrow{
+    font-size: 1.2rem;
+    display: none;
+}
+
+

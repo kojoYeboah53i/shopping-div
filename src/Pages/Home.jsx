@@ -1,4 +1,5 @@
 // import React from 'react'
+import Banner from "../components/Banner";
 import { Cart } from "../components/Cart";
 import Navbar from "../components/navbar";
 import Products from "../components/Products";
@@ -42,6 +43,7 @@ const Home = () => {
         }}
       >
         <Navbar />
+        <Banner/>
         <Heading>
           <h1 className="text-center text-3xl font-bold text-gray-700">
             Product Listings

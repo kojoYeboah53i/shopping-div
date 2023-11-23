@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import backgroundImage from "../assets/background.jpg";
 import { useState } from "react";
 import '../components/styles/login.css';
+import { GoogleLogin } from 'react-google-login';
 import logo from '../assets/favicon.ico'
 
 import { useAuth } from "../Context/useAuth";
@@ -24,6 +25,15 @@ const Login = () => {
     const closBtn = () => {
         setErrorMessage("")
       }
+
+
+    //function for google auth
+
+    const responseGoogle = (response) => {
+      console.log(response);
+      
+
+    };
           
       const onLogin = async (e) => {
       e.preventDefault();
@@ -33,6 +43,7 @@ const Login = () => {
           setErrorMessage("please fill in all fields")
           return
         }
+
   
         
         const url = `${import.meta.env.VITE_REMOTE_API_URL}/login`;
@@ -193,6 +204,15 @@ const Login = () => {
                           login
                         </OnSignIn>
                         </div>
+  <div className="google-auth">
+     <GoogleLogin className="w-full p-2 rounded-xl"
+          clientId={`${import.meta.env.VITE_GOOGLE_CLIENT_ID}`}
+          buttonText="Gmail"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+        />
+  </div>
                         <div className='mt-4 flex gap-4 justify-between py-2 px-0 item-center '>
 
 <p className=" text-2xl text-white text-400 flex justify-between items-start gap-4 w-full mx-auto">
